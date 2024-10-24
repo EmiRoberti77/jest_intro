@@ -54,4 +54,15 @@ describe("Utils test suite", () => {
       );
     });
   });
+
+  describe("Parametized test", () => {
+    it.each([
+      { input: "abc", expected: "ABC" },
+      { input: "My-String", expected: "MY-STRING" },
+      { input: "emi", expected: "EMI" },
+    ])("$input toUpper $expected", ({ input, expected }) => {
+      const actual = toUpperCase(input);
+      expect(actual).toBe(expected);
+    });
+  });
 });
