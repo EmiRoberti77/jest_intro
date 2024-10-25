@@ -8,7 +8,7 @@ F.I.R.S.T. principles are a set of core values that guide the development and ma
 - 4. Self-verifying: Tests should automatically verify their outcomes with clear assertions, eliminating the need for manual inspection of results.
 - 5. Timely: Tests should be written alongside or shortly after the code they are testing, allowing for immediate feedback and reducing the chance of regressions.
 
-# when implementing test use F.I.R.S.T
+## when implementing test use F.I.R.S.T
 
 ## Key Jest Hooks and Functions
 
