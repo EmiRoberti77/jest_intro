@@ -164,3 +164,7 @@ describe("Utils test suite", () => {
   });
 });
 ```
+<img width="540" alt="Screenshot 2024-10-25 at 07 05 13" src="https://github.com/user-attachments/assets/3660ff90-afb2-463a-a5ba-9d6b5e828a90">
+
+![Screenshot 2024-10-25 at 07 05 37](https://github.com/user-attachments/assets/3b486c2f-5f97-4c52-8318-f0136bf9cc6a)
+
