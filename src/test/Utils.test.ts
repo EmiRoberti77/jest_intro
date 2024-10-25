@@ -17,12 +17,14 @@ describe("Utils test suite", () => {
         sut.toUpperCase("");
       }).toThrow();
     });
-    it("it should through an error and catch the Error instance and a message", () => {
+    it("it should through an error and catch the Error instance and a message", (done) => {
       try {
         sut.toUpperCase("");
+        done("GetStringInfo show throw an error for invalid arg");
       } catch (error) {
         expect(error).toBeInstanceOf(Error);
         expect(error).toHaveProperty("message", "Invalid arg");
+        done();
       }
     });
     it("should return correcr upperCase", () => {
