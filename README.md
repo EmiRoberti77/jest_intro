@@ -1,3 +1,15 @@
+## F.I.R.S.T
+
+F.I.R.S.T. principles are a set of core values that guide the development and maintenance of effective test suites. These principles help ensure that tests are reliable, maintainable, and valuable for long-term project success. The acronym stands for Fast, Isolated, Repeatable, Self-verifying, and Timely:
+
+- 1. Fast: Tests should execute quickly, enabling frequent test runs and quicker feedback during development.
+- 2. Isolated: Each test should be independent, ensuring that the outcome of one does not affect another, which helps identify the root cause of issues more easily.
+- 3. Repeatable: Tests must produce consistent results, regardless of where and when they are run, ensuring reliability across different environments.
+- 4. Self-verifying: Tests should automatically verify their outcomes with clear assertions, eliminating the need for manual inspection of results.
+- 5. Timely: Tests should be written alongside or shortly after the code they are testing, allowing for immediate feedback and reducing the chance of regressions.
+
+# when implementing test use F.I.R.S.T
+
 ## Key Jest Hooks and Functions
 
 describe()
@@ -164,7 +176,7 @@ describe("Utils test suite", () => {
   });
 });
 ```
+
 <img width="540" alt="Screenshot 2024-10-25 at 07 05 13" src="https://github.com/user-attachments/assets/3660ff90-afb2-463a-a5ba-9d6b5e828a90">
 
 ![Screenshot 2024-10-25 at 07 05 37](https://github.com/user-attachments/assets/3b486c2f-5f97-4c52-8318-f0136bf9cc6a)
-
