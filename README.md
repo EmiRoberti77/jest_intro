@@ -176,6 +176,57 @@ describe("Utils test suite", () => {
   });
 });
 ```
+# Integration testing
+
+Integration testing with Jest involves testing multiple parts of an application (such as modules, classes, or components) together to ensure they work harmoniously. Unlike unit testing, which isolates single components, integration testing validates how different parts of the code interact, focusing on functionality that crosses module boundaries.
+
+Key Points of Integration Testing with Jest
+
+- 1.	Objective: The main goal of integration testing is to check if various components interact correctly, ensuring that the flow of data and operations between them works as intended.
+- 2.	Realistic Environment: Integration tests often run in an environment closer to production, sometimes including databases, APIs, or other services that the application relies on. This is to see how the system behaves in a near-live scenario.
+- 3.	Example with Jest:
+Suppose we’re testing a server that has a route to fetch user data from a database.
+
+```typescript
+import { Server } from "./server";
+import fetch from 'node-fetch';
+
+describe("Integration test for /user endpoint", () => {
+  let server;
+
+  // Set up the server before any test runs
+  beforeAll(async () => {
+    server = new Server();
+    await server.start();
+  });
+
+  // Shut down the server after tests complete
+  afterAll(async () => {
+    await server.stop();
+  });
+
+  test("GET /user should return user data", async () => {
+    const response = await fetch("http://localhost:8000/user");
+    const data = await response.json();
+
+    // Check if the server returns a success response and valid data
+    expect(response.status).toBe(200);
+    expect(data).toEqual(expect.objectContaining({ id: expect.any(Number), name: expect.any(String) }));
+  });
+});
+```
+
+-	Setup and Teardown: beforeAll and afterAll hooks start and stop the server to simulate a real-world scenario. These hooks help prepare and clean up the testing environment.
+-	Assertions: Inside the test block, assertions like expect(response.status).toBe(200) confirm the endpoint’s response matches expectations. Jest assertions allow for flexible validation, such as checking if the data structure aligns with the expected user data format.
+
+- 4.	Benefits of Using Jest for Integration Testing:
+	•	Async Support: Jest has robust support for asynchronous operations, making it easy to handle real server or database calls.
+	•	Mocking and Spies: Jest offers built-in mocking and spy functionalities, allowing you to isolate dependencies if needed, or verify that certain functions were called.
+	•	Easy Setup and Clear Syntax: Jest is straightforward to set up and has an easy-to-read syntax, making it approachable for testing complex interactions.
+	5.	Best Practices:
+	•	Limit Database Writes: If you’re testing a database interaction, avoid altering data (or reset it afterward) to maintain test integrity.
+	•	Manage Test Data: Use separate test databases or mock responses when possible to avoid interfering with production data.
+	•	Use Lifecycle Methods: beforeAll, afterAll, beforeEach, and afterEach are useful for setting up preconditions and cleaning up after tests.
 
 <img width="540" alt="Screenshot 2024-10-25 at 07 05 13" src="https://github.com/user-attachments/assets/3660ff90-afb2-463a-a5ba-9d6b5e828a90">
 
