@@ -11,6 +11,7 @@ describe("Password checker test suite", () => {
 
   it("password with less then 8 chars is invalid", () => {
     const actual = sut.checkPassword("1234567");
+    expect(actual.valid).toBe(false);
     expect(actual.reason).toContain(PasswordErrors.SHORT);
   });
 
@@ -21,21 +22,23 @@ describe("Password checker test suite", () => {
 
   xit("password with no upperCase is invalid", () => {
     const actual = sut.checkPassword("1234abcd");
-    expect(actual).toBe(false);
+    expect(actual.valid).toBe(false);
+    expect(actual.reason).toContain(PasswordErrors.NO_UPPER_CASE);
   });
 
   xit("password with upperCase is valid", () => {
     const actual = sut.checkPassword("1234abcD");
-    expect(actual).toBe(true);
+    expect(actual.valid).toBe(true);
   });
 
   xit("password with no lowerCase is invalid", () => {
     const actual = sut.checkPassword("1234ABCD");
-    expect(actual).toBe(false);
+    expect(actual.valid).toBe(false);
+    expect(actual.reason).toContain(PasswordErrors.NO_LOWER_CASE);
   });
 
   xit("password with lowerCase is valid", () => {
     const actual = sut.checkPassword("1234aBCD");
-    expect(actual).toBe(true);
+    expect(actual.valid).toBe(true);
   });
 });
