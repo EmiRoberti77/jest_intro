@@ -12,7 +12,8 @@ describe("Integration test on server", () => {
   });
 
   test("GET /api request should return success response", async () => {
-    const result = await fetch("http://localhost:8000/api", {
+    const url = "http://localhost:8000/api";
+    const result = await fetch(url, {
       method: "GET",
       headers: {
         "Content-type": "application/json",
