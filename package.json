@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "jest": "jest"
+    "test:unit": "jest --config jest-u.config.ts",
+    "test:int": "jest --config jest-i.config.ts"
   },
   "keywords": [],
   "author": "",
